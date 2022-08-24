@@ -66,7 +66,7 @@ export default {
   padding: 20px 10px;
   height: 100%;
   opacity: 0;
-  transition: all 0.2s easy;
+  transition: all 0.2s ease;
 }
 
 .movie-item:hover .movie-info-wrap {
@@ -86,5 +86,9 @@ export default {
 
 .btn-block {
   width: 100%;
+}
+
+.row > *:first-child {
+  padding-right: 0;
 }
 </style>
