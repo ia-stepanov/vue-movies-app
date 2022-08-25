@@ -15,7 +15,7 @@ const loaderStore = {
     },
   },
   actions: {
-    toogleLoader({ commit }, bool) {
+    toggleLoader({ commit }, bool) {
       commit(TOGGLE_LOADER, bool);
     },
   },

@@ -22,7 +22,7 @@ const moviesStore = {
   },
   getters: {
     moviesList: ({ movies }) => movies,
-    sliceIDs:
+    slicedIDs:
       ({ top250IDs }) =>
       (from, to) =>
         top250IDs.slice(from, to),
@@ -54,11 +54,11 @@ const moviesStore = {
     },
     async fetchMovies({ getters, commit, dispatch }) {
       try {
-        dispatch("toogleLoader", true, { root: true });
-        const { currentPage, moviesPerPage, sliceIDs } = getters;
+        dispatch("toggleLoader", true, { root: true });
+        const { currentPage, moviesPerPage, slicedIDs } = getters;
         const from = currentPage * moviesPerPage - moviesPerPage;
         const to = currentPage * moviesPerPage;
-        const moviesToFetch = sliceIDs(from, to);
+        const moviesToFetch = slicedIDs(from, to);
 
         const requests = moviesToFetch.map((id) => axios.get(`/?i=${id}`));
         const response = await Promise.all(requests);
@@ -67,7 +67,7 @@ const moviesStore = {
       } catch (err) {
         console.log(err);
       } finally {
-        dispatch("toogleLoader", false, { root: true });
+        dispatch("toggleLoader", false, { root: true });
       }
     },
     changeCurrentPage({ commit, dispatch }, page) {
@@ -84,7 +84,7 @@ const moviesStore = {
     },
     async searchMovies({ commit, dispatch }, query) {
       try {
-        dispatch("toogleLoader", true, { root: true });
+        dispatch("toggleLoader", true, { root: true });
         const response = await axios.get(`/?s=${query}`);
 
         if (response.Error) {
@@ -94,9 +94,17 @@ const moviesStore = {
         const movies = serializeResponse(response.Search);
         commit(MOVIES, movies);
       } catch (err) {
-        console.log(err.message);
+        dispatch(
+          "showNotify",
+          {
+            msg: err.message,
+            title: "Error",
+            variant: "danger",
+          },
+          { root: true }
+        );
       } finally {
-        dispatch("toogleLoader", false, { root: true });
+        dispatch("toggleLoader", false, { root: true });
       }
     },
     toggleSearchState({ commit }, bool) {
