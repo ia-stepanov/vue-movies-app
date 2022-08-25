@@ -7,7 +7,7 @@
         <span class="movie-year">{{ movie.Year }}</span>
       </div>
       <div class="movie-item-controls row no-gutters">
-        <div class="col pl-2">
+        <div class="col pr-2">
           <BButton
             size="md"
             block
@@ -67,7 +67,6 @@ export default {
   border-radius: 5px;
   overflow: hidden;
   transition: all 0.2s ease;
-  width: 280px;
   height: 400px;
 }
 
@@ -92,11 +91,6 @@ export default {
   transition: all 0.2s ease;
 }
 
-.movie-item:hover .movie-info-wrap {
-  opacity: 1;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
 .movie-title {
   font-size: 20px;
   color: #fff;
@@ -107,11 +101,8 @@ export default {
   color: #fff;
 }
 
-.btn-block {
-  width: 100%;
-}
-
-.row > *:first-child {
-  padding-right: 0;
+.movie-item:hover .movie-info-wrap {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 </style>

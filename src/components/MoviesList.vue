@@ -16,8 +16,14 @@
         <div>Empty list</div>
       </template>
     </BRow>
-    <BModal :id="movieInfoModalID" size="xl" hide-footer hide-header>
-      <p>{{ selectedMovie }}</p>
+    <BModal
+      body-class="movie-modal-body"
+      :id="movieInfoModalID"
+      size="xl"
+      hide-footer
+      hide-header
+    >
+      <MovieInfoModalContent :movie="selectedMovie" />
     </BModal>
   </BContainer>
 </template>
@@ -25,6 +31,7 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import MovieItem from "./MovieItem";
+import MovieInfoModalContent from "./MovieInfoModalContent";
 
 export default {
   name: "MoviesList",
@@ -40,6 +47,7 @@ export default {
   }),
   components: {
     MovieItem,
+    MovieInfoModalContent,
   },
   computed: {
     ...mapGetters("movies", ["isSearch"]),
@@ -87,5 +95,11 @@ export default {
   padding-top: 2rem;
   color: #fff;
   font-size: 50px;
+}
+</style>
+
+<style>
+.movie-modal-body {
+  padding: 0 !important;
 }
 </style>
