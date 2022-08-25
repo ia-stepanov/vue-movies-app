@@ -12,8 +12,8 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/",
-      // path: "/vue-movies-app",
+      // path: "/",
+      path: "/vue-movies-app",
       name: "root",
       component: App,
     },

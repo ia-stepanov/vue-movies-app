@@ -67,6 +67,7 @@ export default {
   border-radius: 5px;
   overflow: hidden;
   transition: all 0.2s ease;
+  width: 255px;
   height: 400px;
 }
 

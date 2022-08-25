@@ -110,4 +110,8 @@ export default {
 .movie-modal-body {
   padding: 0 !important;
 }
+
+.container .row {
+  justify-content: center;
+}
 </style>

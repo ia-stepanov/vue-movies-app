@@ -36,7 +36,7 @@ export default {
   background-size: cover;
   background-position: center;
   transition: all 0.2s ease;
-  transform: scale(1.01);
+  transform: scale(1.02);
   filter: blur(4px);
 }
 
