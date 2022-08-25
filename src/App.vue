@@ -73,5 +73,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 </style>

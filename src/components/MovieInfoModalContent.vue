@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     closeModal() {
-      console.log("close");
+      this.$emit("closeModal");
     },
   },
 };
@@ -172,5 +172,10 @@ export default {
 .movie-description {
   font-size: 1.25rem;
   font-weight: 300;
+}
+
+.close-icon {
+  font-size: 24px;
+  cursor: pointer;
 }
 </style>
