@@ -114,4 +114,8 @@ export default {
 .container .row {
   justify-content: center;
 }
+
+.container .row .col-3 {
+  max-width: 100%;
+}
 </style>
